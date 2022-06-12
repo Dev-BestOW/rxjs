@@ -1,0 +1,14 @@
+{
+  "name": "rxjs",
+  "version": "0.1.0",
+  "scripts": {
+    "test": "node rx.js"
+  },
+  "dependencies": {
+    "rxjs": "7.5.5",
+    "tslib": "2.4.0"
+  },
+  "devDependencies": {
+    
+  }
+}
