@@ -2,7 +2,8 @@ const { Observable, filter, take, map } = require("rxjs");
 
 const observer = {
   next:(v) => console.log(v),
-  complete: () => console.log('complete')
+  complete: () => console.log('complete'),
+  error: () => console.log('error')
 }
 
 const interval = (delayTime) => {
