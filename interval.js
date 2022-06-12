@@ -6,8 +6,8 @@ const observer = {
   error: () => console.log('error')
 }
 
-const interval = (delayTime) => {
-  return new Observable((subscriber) => {
+const interval = (delayTime) => 
+  new Observable((subscriber) => {
     let i = 0
     const intervalFunc = setInterval(() => {
       subscriber.next(i);
@@ -18,7 +18,7 @@ const interval = (delayTime) => {
       clearInterval(intervalFunc)
     }
   })
-}
+
 
 interval(500)
   .pipe(
