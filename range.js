@@ -1,9 +1,13 @@
-const { Observable } = require("rxjs");
+const { Observable, filter, take } = require("rxjs");
 
-const range = (first, second) => 
+const range = (start, count) => 
   new Observable((subscriber) => {
-    let min = first;
-    let max = first >= second ? first + second : second + 1;
+    if (count === 0) {
+      subscriber.complete();
+    }
+
+    let min = count === undefined ? 0 : start;
+    let max = count === undefined ? start + 1 : start + count;
 
     for(let i = min; i < max; i++) {
       subscriber.next(i);
@@ -13,3 +17,12 @@ const range = (first, second) =>
       }
     }
   })
+
+
+range(10, 3)
+  .pipe(
+    // filter(n => n % 2 === 0),
+    // take(5),
+  )
+  .subscribe(console.log)
+ 
